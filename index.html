@@ -1,12 +1,27 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="stmarkdown.css">
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
-</script>
-</head><a id="top"></a>
+<<dd_version: 1>>
+<<dd_do:nocommands nooutput>>
+clear all 
+set more off 
+capture log off
+set linesize 255
+log using "C:\Users\LVarkey\OneDrive - CGIAR\Desktop\Kerala_IRRI Work\KERA\Data file_LCAS\Stata data files\KERA_DASHBOARD\Dasboard_log.smcl",replace
+version 15.1
+display "{hilite}>>>>Universal Codes: .n=no response for missing/no response data(Earlier 9998); 9999/Dont' know for don't know {txt}
+* Set the working directory
+cd "C:\Users\LVarkey\OneDrive - CGIAR\Desktop\Kerala_IRRI Work\KERA\Data file_LCAS\Stata data files\KERA_DASHBOARD"
+
+* Open data file created by Kera_dashboard.do
+
+use "LCAS.dta"
+
+*.......................................................................
+*                        IDENTIFIER INFORMATION
+*....................................................................... 
+
+sort state district_mod block_mod PSSID_mod panchayat_mod household_id
+<</dd_do>>
+<<dd_include: header.txt >>
+<a id="top"></a>
 <h2 style="
   background: 
     linear-gradient(to right, rgba(179, 157, 219, 0.85), rgba(209, 196, 233, 0.85)), 
@@ -32,12 +47,17 @@
 ">
     KERA-AWD
 </span>
+
+
 </h2>
+
+
 <!-- HEADER WITH TABS + SEARCH + DOWNLOAD--> 
 <html>
 <head>
 <meta charset="utf-8">
 <title>Dashboard â€” tabs + subtabs + search + PDF</title>
+
 <style>
   :root {
   --main-green: #4CAF50;
@@ -201,39 +221,70 @@ mark.active-match {
   background: orange;
 }
 
+@keyframes multiFlash {
+  0%   { color: #ffffff; }
+  25%  { color: #ffeb3b; }   /* yellow */
+  50%  { color: #4CAF50; }   /* green */
+  75%  { color: #00bcd4; }   /* blue */
+  100% { color: #ffffff; }
+}
+
+.flashing-tab {
+  animation: multiFlash 1.5s infinite;
+  font-weight: 700;
+}
+
 </style>
 </head>
+
 <body>
 <div id="dashboardContent">
 <!-- Tab bar -->
 <div class="tab-bar">
   <div class="tab-links">
     <button class="tab-link active" data-target="home" onclick="openTab(event,'home')">Home</button>
-    <a href="dashboard.html" class="tab-link">LCAS Dashboard</a>
+    <a href="dashboard.html" class="tab-link flashing-tab">LCAS Dashboard</a>
     <button class="tab-link" data-target="knowledge" onclick="openTab(event,'knowledge')">Knowledge products</button>
     <button class="tab-link" data-target="image" onclick="openTab(event,'image')"> 📷Image gallery </button>
   </div>
+
   <div class="search-box">
     <input id="searchInput" placeholder="Search...">
     <button id="searchBtn">🔍</button>
     <button id="clearSearch">✖</button>
   </div>
 </div>
+
 <div id="home" class="tab-content active">
 <h4 style="color:darkblue;margin-top:5px;"><strong> 🏠 Background</strong></h4>
-<p>To address the need and opportunity to reduce GHG emissions in rice without jeopardizing food security and other sustainable development goals, the Government of Kerala (GoK), with support from the World Bank (WB), seeks to (1) identify and target agronomic practices for low-carbon rice production, (2) scale these GHG mitigation practices across Kerala, and (3) connect the farmers to credible payment for ecosystem services like carbon offset markets as a role model for integrative and evidence-led mitigation programming that can be scaled across India. This will empower the GoK and the burgeoning carbon offset markets in South Asia to position investments in agricultural development towards solutions that contribute to multiple sustainable development goals and accelerate efforts to decarbonize the agricultural sector.</p>
+
+To address the need and opportunity to reduce GHG emissions in rice without jeopardizing food security and other sustainable development goals, the Government of Kerala (GoK), with support from the World Bank (WB), seeks to (1) identify and target agronomic practices for low-carbon rice production, (2) scale these GHG mitigation practices across Kerala, and (3) connect the farmers to credible payment for ecosystem services like carbon offset markets as a role model for integrative and evidence-led mitigation programming that can be scaled across India. This will empower the GoK and the burgeoning carbon offset markets in South Asia to position investments in agricultural development towards solutions that contribute to multiple sustainable development goals and accelerate efforts to decarbonize the agricultural sector.
+
 <h4 style="color:darkblue;margin-top:5px;"><strong> Areas of Work</strong></h4>
-<p>To achieve the objectives mentioned above, the project will implement six interrelated Areas of Work (AoW) shown below.</p>
+
+To achieve the objectives mentioned above, the project will implement six interrelated Areas of Work (AoW) shown below. 
+
 <div style="text-align:center;">
     <img src="Aows.png" alt="Kerala" width="500">
 </div
 </div>
+
 <!-- SUBSECTION  :Dashboard -->
 <div id="dashboard" class="tab-content">
 </div>
+
 <!-- SUBSECTION  :Knowledge products -->
 <div id="knowledge" class="tab-content">
+<h3>Brochures</h3>
+  <ul>
+    <li>
+      <a href="knowledge-products/brochures/KERA AWD Brochure English.pdf" download>
+        KERA AWD Brochure English
+      </a>
+    </li>
+  </ul>
 </div>
+
 <!-- SUBSECTION  :Image gallery -->
 <div id="image" class="tab-content">
 <div class="gallery-item">
@@ -242,6 +293,8 @@ mark.active-match {
   <a href="images/Padasekharams.png" download>Download</a>
 </div>
 </div>
+
+
 <!-- FOOTER -->
 <div id="footer-bar" style="
     position: fixed;
@@ -262,6 +315,8 @@ mark.active-match {
     <img src="Logo3.jpeg" alt="Institution 3" style="height: 40px;">
     <img src="cwrdm.jpeg" alt="Institution 4" style="height: 40px;">
 </div>
+
+
 <script>
 
 function openTab(evt, tabId) {
@@ -387,4 +442,6 @@ document.getElementById('clearSearch').addEventListener('click', () => {
 
 
 </script>
+
 </body>
+</html>
