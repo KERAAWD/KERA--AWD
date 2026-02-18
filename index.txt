@@ -65,6 +65,7 @@ sort state district_mod block_mod PSSID_mod panchayat_mod household_id
   --sub-bg: #e8f7f0;
   --sub-pill: #00796b;
 }
+
 object-fit: cover;
 width: 100%;
 height: 100%;
@@ -221,19 +222,33 @@ mark.active-match {
   background: orange;
 }
 
+@keyframes multiFlash {
+  0%   { color: #ffffff; }
+  25%  { color: #ffeb3b; }   /* yellow */
+  50%  { color: #4CAF50; }   /* green */
+  75%  { color: #00bcd4; }   /* blue */
+  100% { color: #ffffff; }
+}
+
+.flashing-tab {
+  animation: multiFlash 1.5s infinite;
+  font-weight: 700;
+}
+
 </style>
 </head>
 
 <body>
 <div id="dashboardContent">
-
 <!-- Tab bar -->
 <div class="tab-bar">
   <div class="tab-links">
     <button class="tab-link active" data-target="home" onclick="openTab(event,'home')">Home</button>
-    <a href="dashboard.html" class="tab-link">LCAS Dashboard</a>
+    <button class="tab-link" data-target="aow" onclick="openTab(event,'aow')">Areas of Work (AoW) </button>
+    <a href="dashboard.html" class="tab-link flashing-tab">LCAS Dashboard</a>
     <button class="tab-link" data-target="knowledge" onclick="openTab(event,'knowledge')">Knowledge products</button>
     <button class="tab-link" data-target="image" onclick="openTab(event,'image')"> 📷Image gallery </button>
+    <button class="tab-link" data-target="contact" onclick="openTab(event,'contact')">Contact us </button>
   </div>
 
   <div class="search-box">
@@ -243,6 +258,7 @@ mark.active-match {
   </div>
 </div>
 
+<div class="container">
 <div id="home" class="tab-content active">
 <h4 style="color:darkblue;margin-top:5px;"><strong> 🏠 Background</strong></h4>
 
@@ -254,26 +270,49 @@ To achieve the objectives mentioned above, the project will implement six interr
 
 <div style="text-align:center;">
     <img src="Aows.png" alt="Kerala" width="500">
-</div
 </div>
-
-<!-- SUBSECTION  :Dashboard -->
-<div id="dashboard" class="tab-content">
+</div>
+<!-- SUBSECTION  :AoW -->
+<div id="aow" class="tab-content">
+<h3>AoW1</h3>
 </div>
 
 <!-- SUBSECTION  :Knowledge products -->
 <div id="knowledge" class="tab-content">
+<h3>Brochures</h3>
+  <ul>
+    <li>
+      <a href="knowledge-products/brochures/KERA AWD Brochure English.pdf" download>
+        KERA AWD Brochure English
+      </a>
+    </li>
+  </ul>
 </div>
 
 <!-- SUBSECTION  :Image gallery -->
 <div id="image" class="tab-content">
 <div class="gallery-item">
-  <img src="images/Padasekharams.png" style="width:120px;">
+  <img src="Interview1.jpg" style="width:60px;">
   <br>
-  <a href="images/Padasekharams.png" download>Download</a>
+  <a href="Interview1.jpg" download>Download</a>
 </div>
 </div>
 
+<!-- SUBSECTION  :Contact Us-->
+<div id="contact" class="tab-content">
+<h3>Contact us at</h3>
+<p>
+  <strong style="
+    background: linear-gradient(90deg, #2E7D32, #1E88E5, #8E24AA, #F4511E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  ">
+    E-mail
+  </strong>:
+  keraawd1@gmail.com; keraawdnews@gmail.com
+</p>
+</div>
+</div>
 
 <!-- FOOTER -->
 <div id="footer-bar" style="

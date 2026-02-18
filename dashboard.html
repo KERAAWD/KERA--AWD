@@ -13,29 +13,34 @@
     url('header.png');
   background-size: cover;
   background-position: center;
+  color: white;
   padding: 10px 25px;
-  border-radius: 10px;
+  border-radius:0;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  text-shadow: 1px 1px 3px #6a1b9a;
   display: flex;
-  justify-content: center;   /* horizontal center */
-  align-items: center;       /* vertical center */
-  height: 130px;
-  margin: 0;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  position: relative;
+  margin: 0; 
 ">
-<!-- Dashboard Logo -->
+   <!-- Dashboard Logo -->
 <p><img src="KERA_dashboard.png" alt="Dashboard" style="
 height: 200%;
 object-fit: contain;
 "></p>
    <!-- Back Button -->
    <a href="index.html" class="back-home-header">
-      ⬅ Back to Home (KERA-AWD)
+      ⬅Back to Home (KERA-AWD)
    </a>
 </h2>
 <!-- HEADER WITH TABS + SEARCH + DOWNLOAD--> 
 <html>
 <head>
 <meta charset="utf-8">
-<title>Dashboard â€” tabs + subtabs + search + PDF</title>
+<title>Dashboard Ã¢â‚¬â€ tabs + subtabs + search + PDF</title>
 <style>
   :root {
   --main-green: #4CAF50;
@@ -53,6 +58,43 @@ body {
   background: #fafafa;
 }
 
+body {
+  margin: 0;
+  padding: 0
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+/* Blinking download button */
+@keyframes blinkFlash {
+  0%, 100% { opacity: 1; color: #fff; }
+  50% { opacity: 0.5; color: yellow; }
+}
+#downloadBtn {
+  position: fixed;
+  right: 16px;
+  top: 12px;
+  z-index: 9999;
+  background: var(--main-green);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  animation: blinkFlash 1.5s infinite;
+  color: white;
+}
+#downloadBtn:hover {
+  background: var(--main-green-dark);
+}
 
 /* Top bar with tabs left, search right */
 .tab-bar {
@@ -62,6 +104,7 @@ body {
   background: linear-gradient(to right, #111, #333);
   padding: 8px 12px;
   position: sticky;
+  margin: 0;
   margin-top: 0;
   top: 0;
   z-index: 500;
@@ -82,14 +125,6 @@ body {
 }
 .tab-link:hover { background: rgba(255,255,255,0.08); }
 .tab-link.active { background: rgba(0,0,0,0.12); }
-
-body {
-  margin: 0;
-}
-
-h1, h2, h3 {
-  margin: 0;
-}
 
 .search-box {
   display: flex;
@@ -199,25 +234,33 @@ mark.active-match {
   background: orange;
 }
 
-@keyframes multiFlash {
-  0%   { color: #ffffff; }
-  25%  { color: #ffeb3b; }   /* yellow */
-  50%  { color: #4CAF50; }   /* green */
-  75%  { color: #00bcd4; }   /* blue */
-  100% { color: #ffffff; }
+@keyframes blinkHeader {
+  0%   { background-color: #2E7D32; }
+  25%  { background-color: #ff9800; }
+  50%  { background-color: #e91e63; }
+  75%  { background-color: #2196f3; }
+  100% { background-color: #2E7D32; }
 }
 
-.flashing-tab {
-  animation: multiFlash 1.5s infinite;
+.back-home-header {
+  position: absolute;
+  top: 65px;        /* LOWER than download button */
+  right: 25px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
   font-weight: 700;
+  font-size: 14px;
+  animation: blinkHeader 1.5s infinite;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
-
 </style>
 </head>
 <body>
 <div id="dashboardContent">
 <!-- Fixed download button -->
-<p><button id="downloadBtn" title="Download all tabs">⬇️ Download Full Report</button></p>
+<p><button id="downloadBtn" title="Download all tabs">⬇️Download Full Report</button></p>
 <!-- Tab bar -->
 <div class="tab-bar">
   <div class="tab-links">
@@ -228,8 +271,8 @@ mark.active-match {
     <button class="tab-link" data-target="residue" onclick="openTab(event,'residue')">Residue management</button>
     <button class="tab-link" data-target="GHG" onclick="openTab(event,'GHG')">GHG Emissions</button>
     <button class="tab-link" data-target="attitude" onclick="openTab(event,'attitude')">Knowledge and willingness towards LEPs</button>
-    <button class="tab-link" data-target="image" onclick="openTab(event,'image')"> 📷Image gallery </button>
-    <button class="tab-link" data-target="download" onclick="openTab(event,'download')"> ⬇️Downloads </button>
+    <button class="tab-link" data-target="image" onclick="openTab(event,'image')">📷Image gallery </button>
+    <button class="tab-link" data-target="download" onclick="openTab(event,'download')">⬇️Downloads </button>
   </div>
   <div class="search-box">
     <input id="searchInput" placeholder="Search...">
@@ -239,16 +282,16 @@ mark.active-match {
 </div>
 <div class="container" id="pdfRoot">
 <div id="home" class="tab-content active">
-<h4 style="color:darkblue;margin-top:5px;"><strong> 🏠 Background</strong></h4>
+<h4 style="color:darkblue;margin-top:5px;"><strong>Background</strong></h4>
 <div style="text-align:center;">
     <img src="Kerala.png" alt="Kerala" width="800">
 </div
-<p>This dashboard/report provides automated insights into the drivers and outcomes of paddy production systems at the landscape level in Keralaâ€™s two major paddy-growing regions- the Kole lands of Thrissur and the paddy belts of Palakkad. It summarises key findings from the Landscape Assessment Survey (LCAS) conducted in these two districts as part of Component 1.2, Alternate Wetting and Drying (AWD)- Catalysing Transitions to Low-Emission Rice-Based Systems in Kerala, under the KERA initiative.</p>
+<p>This dashboard/report provides automated insights into the drivers and outcomes of paddy production systems at the landscape level in KeralaÃ¢â‚¬â„¢s two major paddy-growing regions- the Kole lands of Thrissur and the paddy belts of Palakkad. It summarises key findings from the Landscape Assessment Survey (LCAS) conducted in these two districts as part of Component 1.2, Alternate Wetting and Drying (AWD)- Catalysing Transitions to Low-Emission Rice-Based Systems in Kerala, under the KERA initiative.</p>
 <p>Building a comprehensive data stack for digital landscape analytics and systems assessment is essential for identifying greenhouse gas (GHG) emission hotspots. This foundation will support the co-development and strategic targeting of low-emission packages (LEPs), minimizing unintended consequences while capturing potential positive externalities.</p>
 </div>
 <!-- SUBSECTION  1:Overview -->
 <div id="initialoverview" class="tab-content">
-<h4 style="color:darkblue;margin-top:5px;"><strong> 📊 Initial Overview</strong></h4>
+<h4 style="color:darkblue;margin-top:5px;"><strong> ðŸ“Š Initial Overview</strong></h4>
 <!-- To create space between the next paragraph and the following graph -->
 <div style="margin-bottom: 40px;">
 The dataset contains data from the following districts of Kerala: <strong>Palakkad</strong>, and <strong>Thrissur</strong> from the years 2023 and 2024 for the 3 major cropping seasons of rice,namely Virippu,Mundakan and Puncha. The dataset contains 1,239 samples, and the following distribution of samples across the sample districts:
@@ -392,7 +435,7 @@ The composition of annual household income amongst the respondents is as follows
 <!-- First table(Annual HH Income)-->
 <div>
   <table border="1" style="border-collapse: collapse; width: 75%; font-size:100%; text-align: center;">
-  <tr style='background-color:#f2f2f2;font-size:12px;'><th>District</th><th>&lt; â‚¹ 50,000 (%)</th><th>â‚¹ 50,000-â‚¹ 1,00,000 (%)</th><th>â‚¹ 1,00,001- â‚¹ 2,50,000 (%)</th><th>â‚¹ 2,50,001- â‚¹ 5,00,000 (%)</th><th>â‚¹ 5,00,001- â‚¹ 10,00,000 (%)</th><th>â‚¹ 10,00,001- â‚¹ 15,00,000 (%)</th><th>â‚¹ 15,00,001- â‚¹ 20,00,000 (%)</th><th>&gt; â‚¹ 20,00,000 (%)</th></tr>
+  <tr style='background-color:#f2f2f2;font-size:12px;'><th>District</th><th>&lt; Ã¢â€šÂ¹ 50,000 (%)</th><th>Ã¢â€šÂ¹ 50,000-Ã¢â€šÂ¹ 1,00,000 (%)</th><th>Ã¢â€šÂ¹ 1,00,001- Ã¢â€šÂ¹ 2,50,000 (%)</th><th>Ã¢â€šÂ¹ 2,50,001- Ã¢â€šÂ¹ 5,00,000 (%)</th><th>Ã¢â€šÂ¹ 5,00,001- Ã¢â€šÂ¹ 10,00,000 (%)</th><th>Ã¢â€šÂ¹ 10,00,001- Ã¢â€šÂ¹ 15,00,000 (%)</th><th>Ã¢â€šÂ¹ 15,00,001- Ã¢â€šÂ¹ 20,00,000 (%)</th><th>&gt; Ã¢â€šÂ¹ 20,00,000 (%)</th></tr>
 <tr><td> Palakkad </td><td>22.56</td><td>31.71</td><td> 25.81 </td><td>12.40 </td><td>4.27</td><td>2.03</td><td> 0.20 </td><td>0.61 </td></tr>
 <tr><td> Thrissur </td><td>15.53</td><td>31.33</td><td> 28.11 </td><td>17.67 </td><td>5.22</td><td>1.47</td><td> 0.13 </td><td>0.27 </td></tr>
 </table>
@@ -532,10 +575,10 @@ The composition of annual household income amongst the respondents is as follows
 <div id="productionSubtabsArea" class="production-subtab-area">
       <button class="sub-tab-link" data-target="season" onclick="openSubTab(event,'season')">🌾Crop seasons</button>
       <button class="sub-tab-link" data-target="cropest" onclick="openSubTab(event,'cropest')">🚜 Crop establishment</button>
-      <button class="sub-tab-link" data-target="nutrient" onclick="openSubTab(event,'nutrient')"> 🛍️ Nutrient management</button>
-      <button class="sub-tab-link" data-target="pest" onclick="openSubTab(event,'pest')">🐛 Pest & weed control</button>
-      <button class="sub-tab-link" data-target="irrigation" onclick="openSubTab(event,'water')">💧 Water management</button>
-      <button class="sub-tab-link" data-target="yield" onclick="openSubTab(event,'yield')"> 🧑‍🌾 Harvesting</button>
+      <button class="sub-tab-link" data-target="nutrient" onclick="openSubTab(event,'nutrient')">🛍️Nutrient management</button>
+      <button class="sub-tab-link" data-target="pest" onclick="openSubTab(event,'pest')">🐛Pest & weed control</button>
+      <button class="sub-tab-link" data-target="irrigation" onclick="openSubTab(event,'water')">💧Water management</button>
+      <button class="sub-tab-link" data-target="yield" onclick="openSubTab(event,'yield')">🧑‍🌾Harvesting</button>
     </div>
 <div id="season" class="sub-tab-content">
 <!--Season of cultivation-->
@@ -1227,7 +1270,7 @@ document.getElementById('searchBtn').addEventListener('click', () => {
   }
 });
 
-// Enter key â†’ next match
+// Enter key Ã¢â€ â€™ next match
 document.getElementById('searchInput').addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();
