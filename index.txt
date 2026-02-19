@@ -264,6 +264,8 @@ mark.active-match {
 
 To address the need and opportunity to reduce GHG emissions in rice without jeopardizing food security and other sustainable development goals, the Government of Kerala (GoK), with support from the World Bank (WB), seeks to (1) identify and target agronomic practices for low-carbon rice production, (2) scale these GHG mitigation practices across Kerala, and (3) connect the farmers to credible payment for ecosystem services like carbon offset markets as a role model for integrative and evidence-led mitigation programming that can be scaled across India. This will empower the GoK and the burgeoning carbon offset markets in South Asia to position investments in agricultural development towards solutions that contribute to multiple sustainable development goals and accelerate efforts to decarbonize the agricultural sector.
 
+The initiative is anchored in a strong, knowledge- and solution-driven partnership involving Kerala Agricultural University (KAU), the International Rice Research Institute (IRRI), and the Centre for Water Resources Development and Management (CWRDM), with the Department of Agriculture, Department of
+Irrigation and Padasekhara Samithis playing a critical enabling role in supporting the implementation and field-level engagement.
 <h4 style="color:darkblue;margin-top:5px;"><strong> Areas of Work</strong></h4>
 
 To achieve the objectives mentioned above, the project will implement six interrelated Areas of Work (AoW) shown below. 
