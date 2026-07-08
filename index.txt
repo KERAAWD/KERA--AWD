@@ -351,7 +351,17 @@ Capacity building of KAU and other partners, young researchers and leaders to en
   <ul>
     <li>
       <a href="knowledge-products/Newsletters/KERA-AWD Connect Newsletter Vol I, Issue 1, Jan 2026 (1).pdf" download>
-        KERA-AWD Connect Vol I January 2026(English)
+        KERA-AWD Connect Vol I Issue 1 January 2026(English)
+      </a>
+    </li>
+    <li>
+      <a href="knowledge-products/Newsletters/KERA-AWD Connect Newsletter Vol I, Issue 2, Apr 2026 (2).pdf" download>
+        KERA-AWD Connect Vol I Issue 2 April 2026(English)
+      </a>
+    </li>
+<li>
+      <a href="knowledge-products/Newsletters/KERA-AWD Connect Newsletter Vol I, Issue 2 (Mal), Apr 2026" download>
+        KERA-AWD Connect Vol I Issue 2 April 2026(Malayalam)
       </a>
     </li>
   </ul>
